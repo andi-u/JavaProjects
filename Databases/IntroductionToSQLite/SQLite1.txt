@@ -1,0 +1,28 @@
+PS D:\andi\cursuri\java\JavaProjects\Databases> sqlite3 test.db
+SQLite version 3.32.3 2020-06-18 14:00:33
+Enter ".help" for usage hints.
+sqlite> create table contacts (name text, phone integer, email text);
+sqlite> insert into contacts (name, phone, email) values ('Tim', 6545678, 'tim@email.com');
+sqlite> SELECT * FROM contacts;
+Tim|6545678|tim@email.com
+sqlite> SELECT name, phone, email FROM contacts;
+Tim|6545678|tim@email.com
+sqlite> SELECT email FROM contacts;
+tim@email.com
+sqlite> SELECT email FROM contacts
+   ...> ;
+tim@email.com
+sqlite> INSERT INTO contacts VALUES ("BRIAN", 1234, "brian@myemail.com");
+sqlite> INSERT INTO contacts(name, phone) VALUES ("Steve", 87654);
+sqlite> SELECT * FROM contacts;
+Tim|6545678|tim@email.com
+BRIAN|1234|brian@myemail.com
+Steve|87654|
+sqlite> .headers on
+sqlite> SELECT * FROM contacts;
+name|phone|email
+Tim|6545678|tim@email.com
+BRIAN|1234|brian@myemail.com
+Steve|87654|
+sqlite> .quit
+PS D:\andi\cursuri\java\JavaProjects\Databases> 

@@ -1,0 +1,222 @@
+sqlite> SELECT songs.track, songs.title, albums.name FROM songs JOIN albums ON songs.album = albums._id;
+
+sqlite> SELECT songs.track, songs.title, albums.name FROM songs INNER JOIN albums ON songs.album = albums._id ORDER BY a
+lbums.name, songs.track;
+
+...
+...
+...
+1|Titties & Beer|Zappa In New York
+2|Cruisin' for Burgers|Zappa In New York
+3|I Promise Not|Zappa In New York
+4|Punky's Whips|Zappa In New York
+5|Honey Don't You Want a Man Like Me|Zappa In New York
+6|The Illinois Enema Bandit|Zappa In New York
+7|I'm the Slime|Zappa In New York
+8|Pound for a Brown|Zappa In New York
+9|Manx Needs Women|Zappa In New York
+10|The Black Page Drum Solo Black Page #1|Zappa In New York
+11|Big Leg Emma|Zappa In New York
+12|Sofa|Zappa In New York
+13|Black Page #2|Zappa In New York
+14|The Torture Never Stops|Zappa In New York
+15|The Purple Lagoon Approximate|Zappa In New York
+1|Zooma|Zooma
+2|Grind|Zooma
+3|The Smile of Your Shadow|Zooma
+4|Goose|Zooma
+5|Bass 'n Drums|Zooma
+6|B. Fingers|Zooma
+7|Snake Eyes|Zooma
+8|Nosumi Blues|Zooma
+9|Tidal|Zooma
+1|High Barbary|heavens to betsy
+2|Cliffs of Moher-Slagathor's Death Roundabout|heavens to betsy
+3|Fathom the Bowl|heavens to betsy
+4|Doom Waltz-Aaron's Key|heavens to betsy
+5|Barrack Street|heavens to betsy
+6|Hummeabar|heavens to betsy
+7|A Hundred Years Ago|heavens to betsy
+8|The Belgian Tune|heavens to betsy
+1|The Valiant Turpin|whip Jamboree
+2|Devil in the Kitchen|whip Jamboree
+3|Ford O' Kabul River|whip Jamboree
+4|Bulgine|whip Jamboree
+5|The New Jigs|whip Jamboree
+6|Lankin|whip Jamboree
+7|Polka Against the Clock|whip Jamboree
+8|Rackabella|whip Jamboree
+9|The Four Hour Shovel|whip Jamboree
+10|Landlady|whip Jamboree
+11|Whitstable Cottage-Superfly|whip Jamboree
+12|Whip Jamboree|whip Jamboree
+
+
+sqlite> SELECT albums.name, songs.track, songs.title FROM songs INNER JOIN albums ON songs.album = albums._id ORDER BY a
+lbums.name, songs.track;
+...
+...
+...
+Zappa In New York|1|Titties & Beer
+Zappa In New York|2|Cruisin' for Burgers
+Zappa In New York|3|I Promise Not
+Zappa In New York|4|Punky's Whips
+Zappa In New York|5|Honey Don't You Want a Man Like Me
+Zappa In New York|6|The Illinois Enema Bandit
+Zappa In New York|7|I'm the Slime
+Zappa In New York|8|Pound for a Brown
+Zappa In New York|9|Manx Needs Women
+Zappa In New York|10|The Black Page Drum Solo Black Page #1
+Zappa In New York|11|Big Leg Emma
+Zappa In New York|12|Sofa
+Zappa In New York|13|Black Page #2
+Zappa In New York|14|The Torture Never Stops
+Zappa In New York|15|The Purple Lagoon Approximate
+Zooma|1|Zooma
+Zooma|2|Grind
+Zooma|3|The Smile of Your Shadow
+Zooma|4|Goose
+Zooma|5|Bass 'n Drums
+Zooma|6|B. Fingers
+Zooma|7|Snake Eyes
+Zooma|8|Nosumi Blues
+Zooma|9|Tidal
+heavens to betsy|1|High Barbary
+heavens to betsy|2|Cliffs of Moher-Slagathor's Death Roundabout
+heavens to betsy|3|Fathom the Bowl
+heavens to betsy|4|Doom Waltz-Aaron's Key
+heavens to betsy|5|Barrack Street
+heavens to betsy|6|Hummeabar
+heavens to betsy|7|A Hundred Years Ago
+heavens to betsy|8|The Belgian Tune
+whip Jamboree|1|The Valiant Turpin
+whip Jamboree|2|Devil in the Kitchen
+whip Jamboree|3|Ford O' Kabul River
+whip Jamboree|4|Bulgine
+whip Jamboree|5|The New Jigs
+whip Jamboree|6|Lankin
+whip Jamboree|7|Polka Against the Clock
+whip Jamboree|8|Rackabella
+whip Jamboree|9|The Four Hour Shovel
+whip Jamboree|10|Landlady
+whip Jamboree|11|Whitstable Cottage-Superfly
+whip Jamboree|12|Whip Jamboree
+
+
+sqlite> SELECT artists.name, albums.name FROM artists INNER JOIN albums ON artists._id = albums.artist ORDER BY artists.
+name COLLATE NOCASE ASC;
+...
+...
+...
+Stevie Ray Vaughan|Collections
+Stone Roses|Second Coming
+Sweet|Sweet Fanny Adams
+T.Rex|The Very Best Of Marc Bolan And T. Rex
+Ted Nugent|Ted Nugent
+Ted Nugent|Cat Scratch Fever
+Terry Reid|Super Lungs
+The Clan|Pies-Pasties-and-Rock-n-Roll
+The Clan|Rockin-the-Arm-Live-EP
+The Killers|Day & Age
+Thin Lizzy|Live And Dangerous
+Thomas Tallis|Spem In Alium
+Thunder|Behind Closed Doors
+Thunder|Backstreet Symphony
+Tom Jones|Reloaded
+Tom Lehrer|Tom Lehrer In Concert
+Tom Petty & The Heartbreakers|Greatest Hits
+Tomita|Pictures at an Exhibition
+Treatment|Running With The Dogs
+Troggs|Athens Andover
+Troggs|Wild Thing - The Greatest Hits
+Troggs|Greatest Hits
+U2|18 Singles
+UFO|Phenomenon
+Uriah Heep|Demons And Wizards
+Uriah Heep|Uriah Heep Live
+Uriah Heep|The Magician's Birthday
+Van Halen|Van Halen
+Van Halen|1984
+Vangelis|Albedo 0.39
+Velvet Revolver|Libertad
+Velvet Underground|The Velvet Underground & Nico
+Vladimir Vysotsky|Izbrannoye
+Warner E Hodges|Gunslinger
+White Zombie|Astro-Creep
+Wishbone Ash|Argus
+Wishbone Ash|Keeper Of The Light [Live In Chicago]
+Wishbone Ash|Wishbone Four
+Yardbirds|The Very Best of the Yardbirds
+Yngwie Malmsteen|Rising Force
+ZZ Top|Rio Grande Mud
+ZZ Top|Antenna
+ZZ Top|Recycler
+ZZ Top|Mescalero
+ZZ Top|Tres Hombres
+ZZ Top|Degüello
+
+
+sqlite> SELECT artists.name, albums.name, songs.track, songs.title FROM songs
+   ...> INNER JOIN albums ON songs.album = albums._id
+   ...> INNER JOIN artists ON albums.artist = artists._id
+   ...> ORDER BY artists.name, albums.name, songs.track;  
+...
+...
+...   
+ZZ Top|Recycler|1|Concrete And Steel
+ZZ Top|Recycler|2|Lovething
+ZZ Top|Recycler|3|Penthouse Eyes
+ZZ Top|Recycler|4|Tell It
+ZZ Top|Recycler|5|My Head's In Mississippi
+ZZ Top|Recycler|6|Decision Or Collision
+ZZ Top|Recycler|7|Give It Up
+ZZ Top|Recycler|8|2000 Blues
+ZZ Top|Recycler|9|Burger Man
+ZZ Top|Recycler|10|Doubleback
+ZZ Top|Rio Grande Mud|1|Francine
+ZZ Top|Rio Grande Mud|2|Just Got Paid
+ZZ Top|Rio Grande Mud|3|Mushmouth Shoutin
+ZZ Top|Rio Grande Mud|4|Ko Ko Blue
+ZZ Top|Rio Grande Mud|5|Chevrolet
+ZZ Top|Rio Grande Mud|6|Apologies To Pearly
+ZZ Top|Rio Grande Mud|7|Bar-B-Q
+ZZ Top|Rio Grande Mud|8|Sure Got Cold After The Rain Fell
+ZZ Top|Rio Grande Mud|9|Whiskey'n Mama
+ZZ Top|Rio Grande Mud|10|Down Brownie
+ZZ Top|Tres Hombres|1|Waitin' For The Bus
+ZZ Top|Tres Hombres|2|Jesus Just Left Chicago
+ZZ Top|Tres Hombres|3|Beer Drinkers & Hell Raisers
+ZZ Top|Tres Hombres|4|Master Of Sparks
+ZZ Top|Tres Hombres|5|Hot Blue And Righteous
+ZZ Top|Tres Hombres|6|Move Me On Down The Line
+ZZ Top|Tres Hombres|7|Precious And Grace
+ZZ Top|Tres Hombres|8|La Grange
+ZZ Top|Tres Hombres|9|Sheik
+ZZ Top|Tres Hombres|10|Have You Heard
+ZZ Top|Tres Hombres|11|Waitin' For The Bus (Live) (Bonus)
+ZZ Top|Tres Hombres|12|Jesus Just Left Chicago (Live) (Bonus)
+ZZ Top|Tres Hombres|13|La Grange (Live) (Bonus)
+
+
+
+sqlite> SELECT artists.name, albums.name, songs.track, songs.title FROM songs
+   ...>    INNER JOIN albums ON songs.album = albums._id
+   ...>    INNER JOIN artists ON albums.artist = artists._id
+   ...>    WHERE albums._id = 19
+   ...>    ORDER BY artists.name, albums.name, songs.track;
+Pixies|Doolittle|1|Debaser
+Pixies|Doolittle|2|Tame
+Pixies|Doolittle|3|Wave of Mutilation
+Pixies|Doolittle|4|I Bleed
+Pixies|Doolittle|5|Here Comes Your Man
+Pixies|Doolittle|6|Dead
+Pixies|Doolittle|7|Monkey Gone to Heaven
+Pixies|Doolittle|8|Mr Grieves
+Pixies|Doolittle|9|Crackity Jones
+Pixies|Doolittle|10|La La Love You
+Pixies|Doolittle|11|No 13 Baby
+Pixies|Doolittle|12|There Goes My Gun
+Pixies|Doolittle|13|Hey
+Pixies|Doolittle|14|Silver
+Pixies|Doolittle|15|Gouge Away
+sqlite>

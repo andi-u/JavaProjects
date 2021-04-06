@@ -1,0 +1,56 @@
+PS D:\andi\cursuri\java\JavaProjects\Databases\SQL_OrderBy_and_Joins> sqlite3 music.db
+SQLite version 3.32.3 2020-06-18 14:00:33
+Enter ".help" for usage hints.
+sqlite> SELECT * FROM artists ORDER BY name WHERE _id < 3;
+Error: near "WHERE": syntax error
+sqlite> SELECT * FROM artists WHERE _id < 3 ORDER BY name;
+2|Elf
+1|Mahogany Rush
+sqlite> SELECT * FROM albums WHERE _id < 10 ORDER BY name COLLATE NOCASE;
+4|Behind Closed Doors|147
+5|Day & Age|121
+3|Grace|159
+9|Impurity|95
+8|Night In The Ruts|152
+7|Spem In Alium|199
+6|Sweet Fanny Adams|172
+1|Tales of the Crown|16
+2|The Masquerade Ball|16
+sqlite> SELECT * FROM albums WHERE _id < 10 ORDER BY name COLLATE NOCASE DESC;
+2|The Masquerade Ball|16
+1|Tales of the Crown|16
+6|Sweet Fanny Adams|172
+7|Spem In Alium|199
+8|Night In The Ruts|152
+9|Impurity|95
+3|Grace|159
+5|Day & Age|121
+4|Behind Closed Doors|147
+sqlite> .headers on
+sqlite> SELECT * FROM albums WHERE _id < 10 ORDER BY artist, name COLLATE NOCASE;
+_id|name|artist
+1|Tales of the Crown|16
+2|The Masquerade Ball|16
+9|Impurity|95
+5|Day & Age|121
+4|Behind Closed Doors|147
+8|Night In The Ruts|152
+3|Grace|159
+6|Sweet Fanny Adams|172
+7|Spem In Alium|199
+sqlite> .schema
+CREATE TABLE songs (_id INTEGER PRIMARY KEY, track INTEGER, title TEXT NOT NULL, album INTEGER);
+CREATE TABLE albums (_id INTEGER PRIMARY KEY, name TEXT NOT NULL, artist INTEGER);
+CREATE TABLE artists (_id INTEGER PRIMARY KEY, name TEXT NOT NULL);
+sqlite> SELECT * FROM songs WHERE _id < 10 ORDER BY album, track;
+_id|track|title|album
+5|11|Yearnin'|37
+8|7|Rat Salad|50
+4|7|Flaming Telepaths|104
+7|5|Evil Woman|143
+3|6|Let's Have A Party|260
+6|1|Bat Out Of Hell|290
+2|1|Taking the Easy Way Out Again|311
+1|2|I Can't Quit You Baby|343
+9|8|Young is a World|402
+sqlite>

@@ -1,0 +1,56 @@
+PS D:\andi\cursuri\java\JavaProjects\Databases> sqlite3 test.db
+SQLite version 3.32.3 2020-06-18 14:00:33
+Enter ".help" for usage hints.
+sqlite> SELECT * FROM contacts;
+Tim|6545678|tim@email.com
+BRIAN|1234|brian@myemail.com
+Steve|87654|
+sqlite> INSERT INTO contacts VALUEs ("Avril", "+61 (0)87654321", "avril@email.com.au")
+   ...> ;
+sqlite> SELECT * FROM contacts;
+Tim|6545678|tim@email.com
+BRIAN|1234|brian@myemail.com
+Steve|87654|
+Avril|+61 (0)87654321|avril@email.com.au
+sqlite> .backup testbackup
+sqlite> UPDATE contacts SET email="steve@hisemail.com";
+sqlite> SELECT * FROM contacts;
+Tim|6545678|steve@hisemail.com
+BRIAN|1234|steve@hisemail.com
+Steve|87654|steve@hisemail.com
+Avril|+61 (0)87654321|steve@hisemail.com
+sqlite> .restore testbackup
+sqlite> SELECT * FROM contacts;
+Tim|6545678|tim@email.com
+BRIAN|1234|brian@myemail.com
+Steve|87654|
+Avril|+61 (0)87654321|avril@email.com.au
+sqlite> UPDATE contacts SET email="steve@hisemail.com" WHERE name="Steve";
+sqlite> SELECT * FROM contacts;
+Tim|6545678|tim@email.com
+BRIAN|1234|brian@myemail.com
+Steve|87654|steve@hisemail.com
+Avril|+61 (0)87654321|avril@email.com.au
+sqlite> SELECT * FROM contacts WHERE name="Brian";
+sqlite> SELECT * FROM contacts WHERE name="BRIAN";
+BRIAN|1234|brian@myemail.com
+sqlite> SELECT phone, email FROM contacts WHERE name="BRIAN";
+1234|brian@myemail.com
+sqlite> DELETE FROM contacts WHERE phone=1234;
+sqlite> SELECT * FROM contacts;
+Tim|6545678|tim@email.com
+Steve|87654|steve@hisemail.com
+Avril|+61 (0)87654321|avril@email.com.au
+sqlite> .tables
+contacts
+sqlite> .schema
+CREATE TABLE contacts (name text, phone integer, email text);
+sqlite> .dump
+PRAGMA foreign_keys=OFF;
+BEGIN TRANSACTION;
+CREATE TABLE contacts (name text, phone integer, email text);
+INSERT INTO contacts VALUES('Tim',6545678,'tim@email.com');
+INSERT INTO contacts VALUES('Steve',87654,'steve@hisemail.com');
+INSERT INTO contacts VALUES('Avril','+61 (0)87654321','avril@email.com.au');
+COMMIT;
+sqlite>

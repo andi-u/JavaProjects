@@ -1,0 +1,208 @@
+PS D:\andi\cursuri\java\JavaProjects\Databases\HousekeepingAndFinal_SQLchallenge> sqlite3 music.db
+SQLite version 3.32.3 2020-06-18 14:00:33
+Enter ".help" for usage hints.
+sqlite> select count(*) from albums;
+439
+sqlite> select count(*) from artists;
+202
+sqlite> select count(*) from songs;
+5350
+sqlite> .schema
+CREATE TABLE songs (_id INTEGER PRIMARY KEY, track INTEGER, title TEXT NOT NULL, album INTEGER);
+CREATE TABLE albums (_id INTEGER PRIMARY KEY, name TEXT NOT NULL, artist INTEGER);
+CREATE TABLE artists (_id INTEGER PRIMARY KEY, name TEXT NOT NULL);
+CREATE VIEW artist_list AS
+SELECT artists.name AS artist, albums.name AS album, songs.track, songs.title FROM songs
+INNER JOIN albums ON songs.album = albums._id
+INNER JOIN artists ON albums.artist = artists._id
+ORDER BY artists.name, albums.name, songs.track
+/* artist_list(artist,album,track,title) */;
+sqlite> SELECT songs.title FROM songs
+   ...> INNER JOIN albums ON songs.album = albums._id
+   ...> WHERE albums.name LIKE "Forbidden"
+   ...> ORDER BY songs.title COLLATE NOCASE;
+Can't Get Close Enough
+Forbidden
+Get a Grip
+Guilty as Hell
+I Won't Cry for You
+Kiss of Death
+Rusty Angels
+Shaking Off the Chains
+Sick and Tired
+The Illusion of Power
+sqlite> SELECT songs.track, songs.title FROM songs
+   ...> INNER JOIN albums ON songs.album = albums._id
+   ...> WHERE albums.name LIKE "Forbidden"
+   ...> ORDER BY songs.track COLLATE NOCASE;
+1|The Illusion of Power
+2|Get a Grip
+3|Can't Get Close Enough
+4|Shaking Off the Chains
+5|I Won't Cry for You
+6|Guilty as Hell
+7|Sick and Tired
+8|Rusty Angels
+9|Forbidden
+10|Kiss of Death
+sqlite> SELECT songs.title FROM songs
+   ...> INNER JOIN albums ON songs.album = albums._id
+   ...> INNER JOIN artists ON albums.artist = artists._id
+   ...> WHERE artists.name LIKE "Deep Purple"
+   ...> ORDER BY songs.title COLLATE NOCASE;
+'A' 200
+[Intro]
+And The Address (2000 Digital Remaster)
+Anthem
+Anyone's Daughter
+April (2000 Digital Remaster)
+Backwards Piano
+Bird Has Flown (2000 Digital Remaster)
+Black Night
+Black Night (Original Single Version)
+Black Night (Unedited Roger Glover Remix)
+Blind (2000 Digital Remaster)
+Bloodsucker
+Burn
+Burn
+Chasing Shadows (2000 Digital Remaster)
+Child In Time
+Child In Time
+Child In Time
+Comin' Home
+Cry Free (Roger Glover Remix)
+Dealer
+Demon's Eye
+Demon's Eye (Remix 1996)
+Drifter
+Emmaretta (1998 Digital Remaster)
+Emmaretta (BBC Top Gear Session)
+Encore- Third Movement- Vivace - Presto (Part)
+Exposition - We Can Work It Out
+Fault Line (2000 Digital Remaster)
+Fireball
+Fireball (Take 1 - Instrumental)
+First Day Jam (instrumental)
+First Movement- Moderato - Allegro
+Flight Of The Rat
+Flight Of The Rat (Roger Glover Remix)
+Fools
+Freedom (Album Outtake)
+Gettin' Tighter
+Hard Lovin' Man
+Help (2000 Digital Remaster)
+Help (Alternate Take)
+Hey Bop A Re Bop (BBC Top Gear Session Bonus Track)
+Hey Joe (2000 Digital Remaster)
+Hey Joe (BBC Top Gear Session)
+High Ball Shooter
+Highway Star
+Highway Star
+Highway Star
+Hold On
+Holy Man
+Hush
+Hush (1998 Digital Remaster)
+Hush (Live US TV)
+I Need Love
+I'm Alone (B-Side)
+Into The Fire
+It's All Over (BBC Top Gear Session Bonus Track)
+Jam Stew (Unreleased Instrumental)
+Kentucky Woman
+Lady Double Dealer
+Lady Double Dealer
+Lady Luck
+Lalena (2000 Digital Remaster)
+Lalena (BBC Radio Session)
+Lay Down Stay Down
+Lazy
+Lazy
+Lazy
+Lazy (Quadrophonic Mix)
+Listen Learn Read On
+Living Wreck
+Love Child
+Love Don't Mean A Thing
+Love Help Me (2000 Digital Remaster)
+Love Help Me (Instrumental Version)
+Lucille
+Mandrake Root (1998 Digital Remaster)
+Mary Long
+Maybe I'm a Leo
+Maybe I'm A Leo
+Maybe I'm a Leo (Quadrophonic Mix)
+Might Just Take Your Life
+Mistreated
+Mistreated
+Never Before
+Never Before
+No No No
+No One Came
+No One Came (Remix 1996)
+Oh No No No (Studio Out Take Bonus Track)
+One More Rainy Day (2000 Digital Remaster)
+Our Lady
+Our Lady ('99 Remix)
+Painted Horse (studio out-take)
+Pictures Of Home
+Pictures of Home
+Place In Line
+Playground (Remixed Instrumental Studio Out Take Bonus Track)
+Prelude_ Happiness_I'm So Glad (Medley) (2000 Digital R
+Rat Bat Blue
+Rat Bat Blue ('99 Remix)
+Rat Bat Blue (writing session)
+River Deep Mountain High
+Sail Away
+Second Movement- Andante
+Shadows
+Shield
+Slow Train (Album Outtake)
+Smoke On The Water
+Smoke On The Water
+Smoke On The Water
+Smooth Dancer
+Soldier Of Fortune
+Space Truckin'
+Space Truckin'
+Space Truckin'
+Speed King
+Speed King
+Speed King (Piano Version)
+Speed King (Roger Glover Remix)
+Stormbringer
+Stormbringer
+Strange Kind Of Woman
+Strange Kind Of Woman (A-Side Remix 1996)
+Studio Chat
+Studio Chat
+Studio Chat
+Studio Chat
+Studio Chat
+Studio Chat
+Super Trouper
+The Bird Has Flown (Alternate A-Side Version) (1998 Dig
+The Gypsy
+The Mule
+The Mule (Drum Solo)
+The Noise Abatement Society Tapes
+The Painter (2000 Digital Remaster)
+The Painter (BBC Radio Session)
+Third Movement- Vivace - Presto
+This Time Around Owed To 'G' (Instrumental)
+What's Goin' On Here
+When A Blind Man Cries
+When a Blind Man Cries (B-Side)
+Why Didn't Rosemary_ (1999 Digital Remaster)
+Woman From Tokyo
+Woman From Tokyo ('99 Remix)
+Woman From Tokyo (alt.bridge)
+Wring That Neck
+Wring That Neck
+Wring That Neck (BBC Top Gear Session Bonus Track)
+You Can't Do It Right
+You Fool No One
+You Fool No One
+You Keep On Moving
+sqlite>

@@ -1,0 +1,89 @@
+PS D:\andi\cursuri\java\JavaProjects\Databases> cd .\HousekeepingAndFinal_SQLchallenge
+PS D:\andi\cursuri\java\JavaProjects\Databases\HousekeepingAndFinal_SQLchallenge> sqlite3 music.db
+SQLite version 3.32.3 2020-06-18 14:00:33
+Enter ".help" for usage hints.
+sqlite> .backup music-backup2
+sqlite> DELETE FROM songs WHERE track < 50;
+sqlite> SELECT * FROM songs;
+198|60|Turkeys|177
+912|53|My Brother Makes The Noises For The Talkies|177
+1116|59|The Strain|177
+1690|61|King Of Scurf|177
+1994|67|Fresh Wound|177
+2135|63|Straight From The Heart|177
+2434|57|Mr. Apollo (Single Version) (German Version)|177
+2535|50|I Want To Be With You|177
+2583|68|Bad Blood|177
+2621|69|Slush|177
+2679|65|Rawlinson End|177
+2736|54|I'm Going To Bring A Watermelon To My Girl Tonight|177
+2794|66|Don't Get Me Wrong|177
+3010|58|Ready Mades|177
+3358|64|Rusty (Champion Thrust)|177
+3618|72|Trouser Freak - Roger Ruskin Spear & His Giant Orchestral Wardrobe|177
+3712|62|Waiting For The Wardrobe|177
+3797|70|Labio-Dental Fricative - Vivian Stanshall Sean Head Showband|177
+3959|55|Alley Oop|177
+4308|52|Busted|177
+4881|51|Noises For The Leg|177
+4991|56|Button Up Your Overcoat|177
+5256|50|Closer To You|254
+5312|71|Re-Cycled Vinyl Blues - Neil Innes|177
+sqlite> SELECT * FROM artist_list;
+Bonzo Dog Band|Cornology|50|I Want To Be With You
+Bonzo Dog Band|Cornology|51|Noises For The Leg
+Bonzo Dog Band|Cornology|52|Busted
+Bonzo Dog Band|Cornology|53|My Brother Makes The Noises For The Talkies
+Bonzo Dog Band|Cornology|54|I'm Going To Bring A Watermelon To My Girl Tonight
+Bonzo Dog Band|Cornology|55|Alley Oop
+Bonzo Dog Band|Cornology|56|Button Up Your Overcoat
+Bonzo Dog Band|Cornology|57|Mr. Apollo (Single Version) (German Version)
+Bonzo Dog Band|Cornology|58|Ready Mades
+Bonzo Dog Band|Cornology|59|The Strain
+Bonzo Dog Band|Cornology|60|Turkeys
+Bonzo Dog Band|Cornology|61|King Of Scurf
+Bonzo Dog Band|Cornology|62|Waiting For The Wardrobe
+Bonzo Dog Band|Cornology|63|Straight From The Heart
+Bonzo Dog Band|Cornology|64|Rusty (Champion Thrust)
+Bonzo Dog Band|Cornology|65|Rawlinson End
+Bonzo Dog Band|Cornology|66|Don't Get Me Wrong
+Bonzo Dog Band|Cornology|67|Fresh Wound
+Bonzo Dog Band|Cornology|68|Bad Blood
+Bonzo Dog Band|Cornology|69|Slush
+Bonzo Dog Band|Cornology|70|Labio-Dental Fricative - Vivian Stanshall Sean Head Showband
+Bonzo Dog Band|Cornology|71|Re-Cycled Vinyl Blues - Neil Innes
+Bonzo Dog Band|Cornology|72|Trouser Freak - Roger Ruskin Spear & His Giant Orchestral Wardrobe
+J.J. Cale|Anyway The Wind Blows - The Anthology|50|Closer To You
+sqlite> SELECT * FROM songs WHERE track <> 71;
+198|60|Turkeys|177
+912|53|My Brother Makes The Noises For The Talkies|177
+1116|59|The Strain|177
+1690|61|King Of Scurf|177
+1994|67|Fresh Wound|177
+2135|63|Straight From The Heart|177
+2434|57|Mr. Apollo (Single Version) (German Version)|177
+2535|50|I Want To Be With You|177
+2583|68|Bad Blood|177
+2621|69|Slush|177
+2679|65|Rawlinson End|177
+2736|54|I'm Going To Bring A Watermelon To My Girl Tonight|177
+2794|66|Don't Get Me Wrong|177
+3010|58|Ready Mades|177
+3358|64|Rusty (Champion Thrust)|177
+3618|72|Trouser Freak - Roger Ruskin Spear & His Giant Orchestral Wardrobe|177
+3712|62|Waiting For The Wardrobe|177
+3797|70|Labio-Dental Fricative - Vivian Stanshall Sean Head Showband|177
+3959|55|Alley Oop|177
+4308|52|Busted|177
+4881|51|Noises For The Leg|177
+4991|56|Button Up Your Overcoat|177
+5256|50|Closer To You|254
+sqlite> SELECT count(*) FROM songs;
+24
+sqlite> SELECT count(*) FROM albums;
+439
+sqlite> SELECT count(*) FROM artists;
+202
+sqlite> .restore music-backup2
+sqlite> SELECT count(*) FROM songs;
+5350
